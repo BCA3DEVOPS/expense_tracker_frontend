@@ -1,3 +1,5 @@
+# SonarCloud analysis for Expense Tracker Frontend project
+
 name: SonarCloud Frontend Analysis
 
 on:
