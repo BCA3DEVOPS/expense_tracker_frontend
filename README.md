@@ -1,70 +1,137 @@
-# Getting Started with Create React App
+# 💸 Expense Tracker – Project Workflow & Deployment Guide
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was completed step‑by‑step. Below is the **exact workflow followed**, from development to final presentation.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 1️⃣ Frontend & Backend Development
 
-### `npm start`
+### Frontend
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+* Built using **React**
+* Features:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+  * Add expense
+  * View expense list
+  * Edit & delete expense
+  * Monthly filter and total calculation
+* Axios used to connect with backend APIs
 
-### `npm test`
+### Backend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Built using **Spring Boot**
+* REST APIs for:
 
-### `npm run build`
+  * Create expense
+  * Fetch all expenses
+  * Update expense
+  * Delete expense
+  * Filter by month
+* Database: **H2 (In‑memory)**
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 2️⃣ Push Frontend & Backend to GitHub
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* Frontend and backend maintained in **separate repositories**
+* Initial commit pushed after successful local testing
+* GitHub repositories created and verified
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 3️⃣ Proper Pull Request
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* Changes were pushed to feature branch
+* **Pull Request created** to merge into main branch
+* Code reviewed and merged properly
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 4️⃣ SonarQube Analysis
 
-## Learn More
+* SonarQube used for **static code analysis**
+* Checked for:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+  * Bugs
+  * Code smells
+  * Maintainability
+* Quality gate verified before proceeding further
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 5️⃣ Docker Image Creation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* Dockerfile created for backend application
+* Backend application containerized using **Docker**
+* Docker image built successfully
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 6️⃣ Deployment
 
-### Making a Progressive Web App
+### Backend Deployment (Render)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+* Docker image deployed to **Render**
+* Backend API exposed publicly
+* API tested using browser / Postman
 
-### Advanced Configuration
+**Backend URL:**
+👉 [https://expense-tracker-backend-6-0eh1.onrender.com](https://expense-tracker-backend-6-0eh1.onrender.com)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+### Frontend Deployment (Vercel)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* React frontend deployed using **Vercel**
+* Environment variable configured for backend API URL
+* Build command configured properly
 
-### `npm run build` fails to minify
+**Build Command:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+npm run build
+```
+
+**Output Directory:**
+
+```
+build successfully
+```
+
+## 7️⃣ Custom Domain Configuration
+
+* Free domain obtained using **GitHub Student Developer Pack (Namecheap)**
+* Domain connected to Vercel project
+* DNS configured using:
+
+  * **A Record** for root domain
+  * **CNAME** for www
+* SSL certificate enabled automatically by Vercel
+
+**Custom Domain:**
+👉 [https://meenu.me](https://meenu.me)
+
+## 8️⃣ Final Live Links
+
+* 🌍 Frontend (Custom Domain):
+
+  https://meenu.me
+
+* 🌍 Frontend (Vercel Default):
+
+  https://expense-tracker-meenakshi.vercel.app/
+
+* 🔗 Backend API:
+
+  https://expense-tracker-backend-6-0eh1.onrender.com
+
+## 🔟 Project Presentation
+
+* Project is **ready for live demo**
+* Will be presented in class using **PPT**
+* Demo includes:
+
+  * Live website
+  * Expense CRUD operations
+  * Domain name working
+  * Deployment explanation
