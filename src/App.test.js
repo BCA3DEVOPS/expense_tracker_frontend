@@ -1,3 +1,4 @@
+#test.js is most used for sonar analysis 
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
