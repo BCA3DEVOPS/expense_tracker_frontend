@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import "./App.css";
 
 //const API = "http://localhost:8080/expenses";
 // Backend API URL from environment variable
@@ -79,8 +80,15 @@ function App() {
 
   // ✅ DELETE
   const handleDelete = async (id) => {
-    await axios.delete(`${API}/${id}`);
-    loadExpenses();
+    if (window.confirm("Are you sure you want to delete this expense?")) {
+      try {
+        await axios.delete(`${API}/${id}`);
+        loadExpenses();
+      } catch (err) {
+        alert("Error deleting expense");
+        console.error(err);
+      }
+    }
   };
 
   // ✅ MONTH FILTER

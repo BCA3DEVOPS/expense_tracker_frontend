@@ -1,111 +1,234 @@
-body {
+/* ===== MINIMALIST CLEAN DESIGN ===== */
+
+* {
   margin: 0;
-  font-family: "Segoe UI", sans-serif;
-  background: linear-gradient(120deg, #667eea, #764ba2);
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Main card */
-.container {
-  max-width: 520px;
-  margin: 30px auto;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', sans-serif;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* ===== MAIN CONTAINER ===== */
+#root > div {
+  max-width: 700px;
+  margin: 0 auto;
   background: #ffffff;
-  padding: 16px 20px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-out;
 }
 
-/* Heading */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== HEADINGS ===== */
 h2 {
+  color: #1a202c;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 28px;
   text-align: center;
-  color: #2d2d2d;
+  letter-spacing: -0.5px;
+}
+
+h3 {
+  color: #2d3748;
+  font-size: 18px;
+  font-weight: 600;
+  margin-top: 24px;
   margin-bottom: 14px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #e2e8f0;
 }
 
-/* Labels */
-label {
-  font-size: 14px;
+h4 {
+  color: #2d3748;
+  font-size: 16px;
   font-weight: 600;
-  color: #444;
-}
-
-/* Dropdown */
-select {
-  width: 100%;
-  padding: 6px 8px;
-  margin: 6px 0 10px 0;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  padding: 12px;
+  background: linear-gradient(135deg, #eef1ff 0%, #f5f7ff 100%);
+  border-left: 4px solid #667eea;
   border-radius: 6px;
-  border: 1px solid #bbb;
-  font-size: 14px;
 }
 
-/* Summary box */
-.summary {
-  background: #eef1ff;
-  padding: 8px;
-  border-radius: 6px;
-  text-align: center;
-  font-weight: 600;
-  margin-bottom: 12px;
-  font-size: 14px;
-  color: #3f51b5;
-}
-
-/* Form */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
-/* Input fields (MAIN FIX HERE 👇) */
+/* ===== INPUT FIELDS ===== */
 input {
-  padding: 6px 8px;
-  height: 32px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
-  font-size: 14px;
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 12px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: inherit;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+  color: #1a202c;
 }
 
-/* Button */
+input:focus {
+  outline: none;
+  border-color: #667eea;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+input::placeholder {
+  color: #a0aec0;
+}
+
+/* ===== BUTTONS ===== */
 button {
-  background: #5a67d8;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: white;
   border: none;
-  padding: 7px;
-  height: 34px;
+  padding: 11px 20px;
+  margin-top: 4px;
+  margin-right: 8px;
+  margin-bottom: 8px;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
 }
 
 button:hover {
-  background: #434190;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
 }
 
-/* Expense list */
-ul {
-  list-style: none;
-  padding: 0;
+button:active {
+  transform: translateY(0);
 }
 
-li {
-  background: #f5f7ff;
-  padding: 6px 10px;
-  margin-top: 6px;
-  border-radius: 6px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+/* Search button - full width */
+h3 + input + button {
+  width: 100%;
+  margin-right: 0;
+}
+
+/* ===== SEPARATOR ===== */
+hr {
+  margin: 28px 0;
+  border: none;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+/* ===== TABLE STYLING ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 16px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+thead th {
+  padding: 14px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+}
+
+tbody tr:hover {
+  background: linear-gradient(135deg, #f5f7fa 0%, #f8f9ff 100%);
+}
+
+tbody tr:last-child {
+  border-bottom: none;
+}
+
+tbody td {
+  padding: 12px;
+  color: #2d3748;
   font-size: 14px;
 }
 
-/* Delete button */
-li button {
-  background: #e53e3e;
-  padding: 4px 6px;
-  height: 26px;
+/* ===== TABLE BUTTONS ===== */
+td button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 6px 12px;
   font-size: 12px;
   border-radius: 6px;
+  margin-right: 6px;
+  width: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+td button:last-child {
+  background: linear-gradient(135deg, #fc8181 0%, #f56565 100%);
+  margin-right: 0;
+}
+
+td button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 600px) {
+  #root > div {
+    padding: 20px;
+    border-radius: 12px;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    font-size: 16px;
+    margin-top: 18px;
+  }
+
+  button {
+    padding: 10px 14px;
+    font-size: 13px;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  thead th, tbody td {
+    padding: 8px 6px;
+  }
+
+  td button {
+    padding: 4px 8px;
+    font-size: 11px;
+  }
 }
