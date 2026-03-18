@@ -69,7 +69,8 @@ function App() {
 
   // ✅ DELETE
   const handleDelete = async (id) => {
-    if (globalThis.confirm("Are you sure you want to delete this expense?")) {
+    // eslint-disable-next-line no-undef
+    if (window.confirm("Are you sure you want to delete this expense?")) {
       try {
         await axios.delete(`${API}/${id}`);
         loadExpenses();
