@@ -2,21 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./App.css";
 
-//const API = "http://localhost:8080/expenses";
-// Backend API URL from environment variable
-//const API = `${process.env.REACT_APP_API_URL}/expenses`;
 const API = process.env.REACT_APP_API_URL + "/expenses";
-//console.log("ENV 👉", import.meta.env.VITE_API_URL);
-
 
 function App() {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [date, setDate] = useState("");
-
   const [expenses, setExpenses] = useState([]);
   const [editId, setEditId] = useState(null);
-
   const [month, setMonth] = useState("");
   const [total, setTotal] = useState(0);
 
@@ -24,19 +17,15 @@ function App() {
     loadExpenses();
   }, []);
 
-  //const loadExpenses = async () => {
-  //  const res = await axios.get(API);
-  //  setExpenses(res.data);
-  //};
   const loadExpenses = async () => {
-  try {
-    const res = await axios.get(API);
-    setExpenses(Array.isArray(res.data) ? res.data : []);
-  } catch (err) {
-    console.error(err);
-    setExpenses([]);
-  }
-};
+    try {
+      const res = await axios.get(API);
+      setExpenses(Array.isArray(res.data) ? res.data : []);
+    } catch (err) {
+      console.error("Error loading expenses:", err);
+      setExpenses([]);
+    }
+  };
 
 
   // ✅ ADD / UPDATE
@@ -92,30 +81,21 @@ function App() {
   };
 
   // ✅ MONTH FILTER
-  /*const loadByMonth = async () => {
+  const loadByMonth = async () => {
     if (!month) return;
 
-    const res = await axios.get(`${API}/month/${month}`);
-    setExpenses(res.data);
+    try {
+      const res = await axios.get(`${API}/month/${month}`);
+      setExpenses(Array.isArray(res.data) ? res.data : []);
 
-    const totalRes = await axios.get(`${API}/month/${month}/total`);
-    setTotal(totalRes.data);
-  };*/
-  const loadByMonth = async () => {
-  if (!month) return;
-
-  try {
-    const res = await axios.get(`${API}/month/${month}`);
-    setExpenses(Array.isArray(res.data) ? res.data : []);
-
-    const totalRes = await axios.get(`${API}/month/${month}/total`);
-    setTotal(totalRes.data || 0);
-  } catch (err) {
-    console.error(err);
-    setExpenses([]);
-    setTotal(0);
-  }
-};
+      const totalRes = await axios.get(`${API}/month/${month}/total`);
+      setTotal(totalRes.data || 0);
+    } catch (err) {
+      console.error("Error loading monthly expenses:", err);
+      setExpenses([]);
+      setTotal(0);
+    }
+  };
 
 
   return (
